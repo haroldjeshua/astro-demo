@@ -1,0 +1,80 @@
+<div class="tabs">
+  <ul class="tabs-header">
+    <li class="default-tab">NPM</li>
+    <li>PNPM</li>
+    <li>YARN</li>
+  </ul>
+  <ul class="tabs-content">
+    <li class="tab">
+      <code>$ npm create astro@latest</code>
+    </li>
+    <li class="tab">
+      <code>$ pnpm create astro@latest</code>
+    </li>
+    <li class="tab">
+      <code>$ yarn create astro</code>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .tabs {
+    margin-top: 30px;
+  }
+
+  .tabs-header {
+    display: flex;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+  }
+
+  .tabs-header li {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .tabs-content {
+    font-size: 18px;
+    padding: 20px;
+    border: 1px solid #333;
+    font-weight: bold;
+    background: #f4f4f4;
+  }
+</style>
+
+<script>
+  function createTabs(el) {
+    const header = el.querySelector(".tabs-header");
+    const content = el.querySelector(".tabs-content");
+
+    const tabHeaders = [...header.children];
+    const tabContent = [...content.children];
+
+    tabContent.forEach((x) => (x.style.display = "none"));
+    let currentTabIndex = -1;
+
+    function setTab(idx) {
+      if (currentTabIndex > -1) {
+        tabHeaders[currentTabIndex].style.fontWeight = "400";
+        tabHeaders[currentTabIndex].style.color = "#dcdcdc";
+        tabContent[currentTabIndex].style.display = "none";
+      }
+
+      tabHeaders[idx].style.fontWeight = 500;
+      tabHeaders[idx].style.color = "var(--color-secondary)";
+      tabContent[idx].style.display = "flex";
+      currentTabIndex = idx;
+    }
+
+    let defaultTabIndex = tabHeaders.findIndex((x) => {
+      return [...x.classList].indexOf("default-tab") > -1;
+    });
+
+    defaultTabIndex = defaultTabIndex === -1 ? 0 : defaultTabIndex;
+    setTab(defaultTabIndex);
+    tabHeaders.forEach((x, i) => (x.onclick = (e) => setTab(i)));
+  }
+
+  [...document.querySelectorAll(".tabs")].forEach((x) => createTabs(x));
+</script>

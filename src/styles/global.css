@@ -66,6 +66,23 @@ h3 {
   display: none;
 }
 
+.page-content {
+  margin: 20px 0;
+}
+
+.page-content h2,
+.page-content h3 {
+  margin: 20px 0;
+}
+
+.page-content h2 {
+  font-size: 40px;
+}
+
+.page-content h3 {
+  font-size: 25px;
+}
+
 @media (max-width: 960px) {
   .logos-small {
     display: block;
@@ -77,10 +94,6 @@ h3 {
 }
 
 @media (max-width: 500px) {
-  .features .container {
-    grid-template-columns: 1fr;
-  }
-
   h1,
   h2 {
     text-align: center;
