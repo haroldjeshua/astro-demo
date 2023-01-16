@@ -1,33 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro"
 
-const name = "harv"
-const style = "orange"
-const response = await fetch("https://jsonplaceholder.typicode.com/users?_limit=10")
-const users = await response.json()
-const visible = false
 ---
-<Layout>
-	<h1 class={style}>Hello <span>{name}</span>!</h1>
-
-	<ul>
-		{users.map(user => <li>{user.name}</li>)}
-	</ul>
-
-	{visible && <p>This text is visible</p>}
-	{visible ? <p>This text is visible</p> : <p>The text isn't visible</p>}
+<Layout title="Hello">
+	<h1>Hello Boize</h1>
 </Layout>
 
 <style>
-	body {
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	}
-	span {
-		color: purple;
-		text-decoration: underline;
-	}
 
-	.orange {
-		color: orangered;
-	}
 </style>
