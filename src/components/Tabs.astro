@@ -1,3 +1,11 @@
+---
+export interface Props {
+  activeColor: string;
+}
+
+const { activeColor = "var(--color-secondary)" } = Astro.props as Props;
+---
+
 <div class="tabs">
   <ul class="tabs-header">
     <li class="default-tab">NPM</li>
@@ -43,7 +51,7 @@
   }
 </style>
 
-<script>
+<script define:vars={{ activeColor }}>
   function createTabs(el) {
     const header = el.querySelector(".tabs-header");
     const content = el.querySelector(".tabs-content");
@@ -62,7 +70,7 @@
       }
 
       tabHeaders[idx].style.fontWeight = 500;
-      tabHeaders[idx].style.color = "var(--color-secondary)";
+      tabHeaders[idx].style.color = activeColor;
       tabContent[idx].style.display = "flex";
       currentTabIndex = idx;
     }
