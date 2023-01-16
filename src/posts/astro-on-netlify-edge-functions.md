@@ -1,6 +1,6 @@
 ---
 title: Astro On Netlify Edge Functions
-slug: astro-on-netlify-edge-Functions
+slug: astro-on-netlify-edge-functions
 excerpt: Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit laboriosam blanditiis praesentium perferendis laborum eveniet magni illo eos rerum minima?
 date: 2023-06-22
 author: Jeshua H
