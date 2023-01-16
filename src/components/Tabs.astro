@@ -1,27 +1,23 @@
 ---
 export interface Props {
   activeColor: string;
+  headings: string[];
+  contents: string[];
 }
 
-const { activeColor = "var(--color-secondary)" } = Astro.props as Props;
+const {
+  headings,
+  contents,
+  activeColor = "var(--color-secondary)",
+} = Astro.props as Props;
 ---
 
 <div class="tabs">
   <ul class="tabs-header">
-    <li class="default-tab">NPM</li>
-    <li>PNPM</li>
-    <li>YARN</li>
+    {headings.map((heading) => <li>{heading}</li>)}
   </ul>
   <ul class="tabs-content">
-    <li class="tab">
-      <code>$ npm create astro@latest</code>
-    </li>
-    <li class="tab">
-      <code>$ pnpm create astro@latest</code>
-    </li>
-    <li class="tab">
-      <code>$ yarn create astro</code>
-    </li>
+    {contents.map((content) => <li class="tab">{content}</li>)}
   </ul>
 </div>
 

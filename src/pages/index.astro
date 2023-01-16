@@ -16,7 +16,25 @@ import Tabs from "../components/Tabs.astro";
         create-astro CLI wizard!
       </p>
 
-      <Tabs activeColor="orangered" />
+      <Tabs
+        activeColor="orangered"
+        headings={["NPM", "PNPM", "YARN"]}
+        contents={[
+          "$ npm create astro@latest",
+          "$ pnpm create astro@latest",
+          "$ yarn create astro",
+        ]}
+      />
+
+      <!-- <li class="tab">
+      <code>$ npm create astro@latest</code>
+    </li>
+    <li class="tab">
+      <code>$ pnpm create astro@latest</code>
+    </li>
+    <li class="tab">
+      <code>$ yarn create astro</code>
+    </li> -->
 
       <h3>Start Building</h3>
       <p>
